@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-page, .dashboard {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    width: 300px;
+    text-align: center;
+}
+
+.auth-page h1, .dashboard h2 {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.content, .selling-option, .chatbot-option {
+    display: none;
+}
+
+.selling-option, .chatbot-option {
+    margin-top: 20px;
+}
+
+#dashboard {
+    width: 80%;
+    max-width: 800px;
+}
+
+.dashboard button {
+    width: auto;
+    padding: 10px 20px;
+    margin: 0 10px;
+}
+
+.logo {
+    width: 10px;
+    margin-bottom: 20px;
+}
+
+.content-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}

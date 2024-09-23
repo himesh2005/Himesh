@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRUSHIMITRA</title>  
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .phone {
+            width: 375px;
+            height: 667px;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .app-header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #e8f5e9;
+        }
+        .option {
+            background-color: #ffffff;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            padding: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 30%;
+            font-size: 12px;
+        }
+        .option:hover {
+            background-color: #f1f8e9;
+        }
+        .content-area {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #888;
+            position: relative;
+        }
+
+        /* Sub-options for Direct Selling */
+        .sub-options {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #e8f5e9;
+        }
+        .sub-option {
+            background-color: #ffffff;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            padding: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 30%;
+            font-size: 12px;
+        }
+        .sub-option:hover {
+            background-color: #f1f8e9;
+        }
+
+        .image-container {
+            position: absolute;
+            margin-top: -320px;
+            width: 100%;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 90%;
+            height: auto;
+        }
+        .text-on-image {
+            position: absolute;
+            top: 85%;
+            left: 45%;
+            transform: translate(-70%, -50%); 
+            color: white; 
+            font-size: 12px; 
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .image-container-2 {
+            position: absolute;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+        }
+        .image-container-2 img {
+            max-width: 90%;
+            height: auto;
+        }
+        .text-on-image-2 {
+            position: absolute;
+            top: 83%;
+            left: 45%;
+            transform: translate(-70%, -50%); 
+            color: white;
+            font-size: 12px; 
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .image-container-3 {
+            position: absolute;
+            margin-top: 360px;
+            width: 100%;
+            text-align: center;
+        }
+        .image-container-3 img {
+            max-width: 90%;
+            height: auto;
+        }
+        .text-on-image-3 {
+            position: absolute;
+            top: 83%;
+            left: 45%;
+            transform: translate(-70%, -50%); 
+            color: white;
+            font-size: 12px; 
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #29942f;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 74;
+            height: -5;
+            border-bottom-right-radius:10px ;
+            border-bottom-left-radius: 10px;
+
+        }
+        .bottom-nav .nav-item {
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .bottom-nav .nav-item i {
+            font-size: 24px;
+        }
+        .bottom-nav .nav-item:hover {
+            color: #f0f0f0;
+        }
+    </style>
+    <script>
+        function selectOption(option) {
+            if (option === 'Direct Selling') {
+                window.location.href = 'direct.html';
+            }
+            // Add more conditions for other options if needed
+        }
+
+        function showContent(type) {
+            switch(type) {
+                case 'productSelling':
+                    window.location.href = 'product.html';
+                    break;
+                case 'animalSelling':
+                    window.location.href = 'animal.html'; // Adjust URL as needed
+                    break;
+                case 'landRenting':
+                    window.location.href = 'land.html'; // Adjust URL as needed
+                    break;
+                default:
+                    console.log('Unknown option selected');
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="phone">
+        <div class="app-header">KRUSHIMITRA</div>
+        <div class="options">
+            <div class="option" onclick="selectOption('Daily News Updates')">Daily News Updates</div>
+            <div class="option" onclick="selectOption('Direct Selling')">Direct Selling</div>
+            <div class="option" onclick="selectOption('AI Chat Bot')">AI Chat Bot</div>
+        </div>
+
+        <!-- Direct Selling Sub-options (clickable) -->
+        <div class="sub-options">
+            <div class="sub-option" onclick="showContent('productSelling')">Product Selling</div>
+            <div class="sub-option" onclick="showContent('animalSelling')">Animal Selling</div>
+            <div class="sub-option" onclick="showContent('landRenting')">Land Renting</div>
+        </div>
+
+        <div class="content-area">
+            <div>Content Area</div>
+            
+            <div class="image-container">
+                <img src="Screenshot 2024-09-12 222838.png" alt="Image">
+                <div class="text-on-image">9 ACRES ONE YEAR RENT - 90000-/ </div>
+            </div>
+
+            <!-- Second image -->
+            <div class="image-container-2">
+                <img src="Screenshot 2024-09-12 222928.png" alt="Image 2">
+                <div class="text-on-image-2">2 ACRES ONE YEAR RENT - 20000-/</div>
+            </div>
+
+            <!-- Third image -->
+            <div class="image-container-3">
+                <img src="Screenshot 2024-09-12 223003.png" alt="Image 3">
+                <div class="text-on-image-3">6 ACRES ONE YEAR RENT 50000-/</div>
+            </div>
+        </div>
+
+</body>
+<!-- Bottom navigation bar -->
+ <div class="bottom-nav">
+    <div class="nav-item" onclick="navigateTo('Home')">
+        <i class="fa fa-home"></i><br>Home
+    </div>
+    <div class="nav-item" onclick="navigateTo('Profile')">
+        <i class="fa fa-user"></i><br>Profile
+    </div>
+    <div class="nav-item" onclick="navigateTo('Settings')">
+        <i class="fa fa-cog"></i><br>Settings
+    </div>
+    <div class="nav-item" onclick="navigateTo('Notifications')">
+        <i class="fa fa-bell"></i><br>Notifications
+    </div>
+</div>
+</div>
+<script>
+    function selectOption(option) {
+        if (option === 'Daily News Updates') {
+            window.location.href = 'abhi.html'; // Redirect to abhi.html
+        } else if (option === 'Direct Selling') {
+            window.location.href = 'direct.html'; // Redirect to direct.html
+        } else if (option === 'AI Chat Bot') {
+            window.location.href = 'AI.html'; // Redirect to AI.html
+        }
+    }
+
+    function showContent(type) {
+        switch(type) {
+            case 'productSelling':
+                window.location.href = 'product.html';
+                break;
+            case 'animalSelling':
+                window.location.href = 'animal.html'; // Adjust URL as needed
+                break;
+            case 'landRenting':
+                window.location.href = 'land.html'; // Adjust URL as needed
+                break;
+            default:
+                console.log('Unknown option selected');
+        }
+    }
+    function navigateTo(page) {
+        switch(page) {
+            case 'Home':
+                window.location.href = 'abhi.html'; // Redirect to Home (abhi.html)
+                break;
+            case 'Profile':
+                window.location.href = 'profile.html'; // Redirect to Profile
+                break;
+            case 'Settings':
+                window.location.href = 'setting.html'; // Redirect to Settings
+                break;
+            case 'Notifications':
+                window.location.href = 'notification.html'; // Redirect to Notifications
+                break;
+            default:
+                console.log('Unknown page');
+        }
+    }
+</script>
+
+
+<!-- Include FontAwesome for icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</html>

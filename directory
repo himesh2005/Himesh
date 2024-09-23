@@ -1,0 +1,13 @@
+mobikwik_clone/           # Root directory of your project
+│
+├── app.py                # Main application script
+├── templates/            # Directory for HTML templates
+│   ├── index.html        # Home page template
+│   ├── login.html        # Login page template
+│   ├── register.html     # Registration page template
+│   ├── dashboard.html    # Dashboard page template
+│
+├── static/               # Directory for static files (CSS, JavaScript, images)
+│   ├── styles.css        # CSS file for styling
+│
+└── db.sqlite3            # SQLite database file (created after running the app)

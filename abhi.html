@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRUSHIMITRA</title>
+    <link rel="stylesheet" href="abhi.css
+</head>
+<body>
+    <div class="container">
+        <div id="sign-in" class="auth-page">
+            <img src="WhatsApp Image 2024-08-28 at 22.42.05_7a00d230.jpg" alt="KRUSHIMITRA Logo" class="logo">
+            <h1>Sign In</h1>
+            <input type="text" id="mobile-signin" placeholder="Enter Mobile Number">
+            <button onclick="sendOtp()">Send OTP</button>
+            <input type="text" id="otp-signin" placeholder="Enter OTP">
+            <button onclick="signIn()">Sign In</button>
+            <p>Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a></p>
+        </div>
+
+        <div id="sign-up" class="auth-page">
+            <img src="images/krushimitra-logo.png" alt="KRUSHIMITRA Logo" class="logo">
+            <h1>Sign Up</h1>
+            <input type="text" id="mobile-signup" placeholder="Enter Mobile Number">
+            <button onclick="sendOtp()">Send OTP</button>
+            <input type="text" id="otp-signup" placeholder="Enter OTP">
+            <button onclick="signUp()">Sign Up</button>
+            <p>Already have an account? <a href="#" onclick="showSignIn()">Sign In</a></p>
+        </div>
+
+        <div id="dashboard" class="dashboard">
+            <div class="navbar">
+                <button onclick="showPage('news')">Daily News Update</button>
+                <button onclick="showPage('selling')">Direct Selling</button>
+                <button onclick="showPage('chatbot')">AI Chat Bot</button>
+            </div>
+
+            <div id="news" class="content">
+                <h2>Daily News Update</h2>
+                <img src="images/news.jpg" alt="Agriculture News" class="content-image">
+                <p>Latest agricultural news will be shown here.</p>
+            </div>
+
+            <div id="selling" class="content">
+                <h2>Direct Selling</h2>
+                <img src="images/selling.jpg" alt="Direct Selling" class="content-image">
+                <button onclick="showSellingOption('product')">Product Selling</button>
+                <button onclick="showSellingOption('animal')">Animal Selling</button>
+                <button onclick="showSellingOption('land')">Land Renting</button>
+
+                <div id="product" class="selling-option">
+                    <h3>Product Selling</h3>
+                    <img src="images/product-selling.jpg" alt="Product Selling" class="content-image">
+                    <p>Details about product selling.</p>
+                </div>
+
+                <div id="animal" class="selling-option">
+                    <h3>Animal Selling</h3>
+                    <img src="images/animal-selling.jpg" alt="Animal Selling" class="content-image">
+                    <p>Details about animal selling.</p>
+                </div>
+
+                <div id="land" class="selling-option">
+                    <h3>Land Renting</h3>
+                    <img src="images/land-renting.jpg" alt="Land Renting" class="content-image">
+                    <p>Details about land renting.</p>
+                </div>
+            </div>
+
+            <div id="chatbot" class="content">
+                <h2>AI Chat Bot</h2>
+                <img src="images/chatbot.jpg" alt="AI Chat Bot" class="content-image">
+                <button onclick="showChatBotOption('query')">Query Solving</button>
+                <button onclick="showChatBotOption('learning')">Learn Farming</button>
+
+                <div id="query" class="chatbot-option">
+                    <h3>Query Solving</h3>
+                    <img src="images/query-solving.jpg" alt="Query Solving" class="content-image">
+                    <p>AI chatbot will solve your farming queries.</p>
+                </div>
+
+                <div id="learning" class="chatbot-option">
+                    <h3>Learn Farming</h3>
+                    <img src="images/learn-farming.jpg" alt="Learn Farming" class="content-image">
+                    <p>Farming videos in every language.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="abhiii.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRUSHIMITRA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        .section, .form-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            display: none; /* Initially hidden */
+        }
+        .section.active, .form-section.active {
+            display: block;
+        }
+        .section h2, .form-section h1 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #333;
+        }
+        .section p, .form-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+        .section a, .form-section a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .section a:hover, .form-section a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>KRUSHIMITRA</h1>
+    </div>
+
+    <div class="container">
+        <!-- Sign In Form -->
+        <div id="signInForm" class="form-section active">
+            <h1>Sign In</h1>
+            <form>
+                <div class="form-group">
+                    <label for="signInPhone">Phone Number:</label>
+                    <input type="tel" id="signInPhone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="signInPassword">Password:</label>
+                    <input type="password" id="signInPassword" name="password" required>
+                </div>
+                <div class="form-group">
+                    <a href="#">Forgot your password?</a>
+                </div>
+                <button type="submit" class="btn">Sign In</button>
+                <div class="text-center">
+                    <p>Don’t have an account? <a href="#" onclick="toggleForm()">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signUpForm" class="form-section">
+            <h1>Sign Up</h1>
+            <form>
+                <div class="form-group">
+                    <label for="signUpPhone">Phone Number:</label>
+                    <input type="tel" id="signUpPhone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="otp">OTP:</label>
+                    <input type="text" id="otp" name="otp" required>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signUpPassword">Password:</label>
+                    <input type="password" id="signUpPassword" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+                <div class="text-center">
+                    <p>Already have an account? <a href="#" onclick="toggleForm()">Sign In</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Daily Updates Section -->
+        <div id="updatesSection" class="section">
+            <h2>Daily Updates</h2>
+            <p><strong>Sustainable Agriculture for the Future:</strong> Insights from India's G20.</p>
+            <p><strong>Grape Variety:</strong> अंगूर की इस वैरायटी की खेती से कमाए मुनाफा.</p>
+            <p><strong>Animal Husbandry:</strong> किसान विदेश में सीखेंगे खेती और पशुपालन की नई.</p>
+        </div>
+
+        <!-- Direct Selling Section -->
+        <div id="directSellingSection" class="section">
+            <h2>Direct Selling</h2>
+            <p>Explore how direct selling can help you connect with consumers and improve your market reach.</p>
+        </div>
+
+        <!-- AI Chat Bot Section -->
+        <div id="aiChatBotSection" class="section">
+            <h2>AI Chat Bot</h2>
+            <p>Discover how our AI chatbot can assist you with real-time support and automation.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 KRUSHIMITRA. All rights reserved.</p>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const signInForm = document.getElementById('signInForm');
+            const signUpForm = document.getElementById('signUpForm');
+
+            if (signInForm.classList.contains('active')) {
+                signInForm.classList.remove('active');
+                signUpForm.classList.add('active');
+            } else {
+                signUpForm.classList.remove('active');
+                signInForm.classList.add('active');
+            }
+        }
+
+        // Optional: You can add logic here to show/hide the content sections based on user interactions
+    </script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Deals - Agricultural Marketplace</title>  
+    <style> 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .header {
+            background-color: #2c5e1a;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .nav-top {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-top a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-top a:hover {
+            color: #a5d6a7;
+        }
+        .search-bar {
+            display: flex;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+        .search-bar input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        .content-box {
+            flex: 1 1 calc(33.333% - 20px);
+            min-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content-area {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .product-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+        .product-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .product-item .text {
+            padding: 15px;
+        }
+        .product-item h3 {
+            margin-top: 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .product-item p {
+            color: #666;
+            font-size: 14px;
+        }
+        .product-item .price {
+            font-weight: bold;
+            color: #4CAF50;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .featured-products h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #2c5e1a;
+        }
+        .category-options {
+            background-color: #f0f0f0;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .category-options a {
+            color: #333;
+            text-decoration: none;
+            padding: 5px 15px;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .category-options a:hover {
+            color: #4CAF50;
+        }
+        .search-options-wrapper {
+            background-image: url('/placeholder.svg?height=400&width=1200');
+            background-size: cover;
+            background-position: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        .search-options-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .search-options-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+    <script>
+        function navigateTo(page) {
+            if (page === 'Profile') {
+                window.location.href = 'profile.html';
+            } else if (page === 'Home') {
+                window.location.href = 'home.html'; 
+            } else if (page === 'Settings') {
+                window.location.href = 'setting.html';  
+            } else if (page === 'Notifications') {
+                window.location.href = 'notification.html'; 
+            } else if (page === 'Prime Deals') {
+                window.location.href = 'deal.html';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Prime Deals</h1>
+            <nav class="nav-top">
+                <a href="#" onclick="navigateTo('Home')">Home</a>
+                <a href="#" onclick="navigateTo('Profile')">Profile</a>
+                <a href="#" onclick="navigateTo('Settings')">Settings</a>
+                <a href="#" onclick="navigateTo('Notifications')">Notifications</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="category-options">
+        <a href="eletonics.html">Electronics</a>
+        <a href="#">Fashion</a>
+        <a href="#">Art</a>
+        <a href="furniture.html">Furniture</a>
+        <a href="#" onclick="navigateTo('Prime Deals')">Get into Prime Deals</a>
+    </div>
+
+    <div class="search-options-wrapper">
+        <div class="search-options-content">
+            <div class="search-bar">
+                <input type="text" placeholder="Search for agricultural products...">
+                <button>Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content-box">
+            <div class="featured-products">
+                <h2>New Startup Products</h2>
+                <div class="content-area">
+                    <div class="product-item">
+                        <img src="WhatsApp Image 2024-09-21 at 12.44.49_665dc753.jpg" alt="Xiamo 13">
+                        <div class="text">
+                            <h3>Xiaomi 13</h3>
+                            <p>5g Black Diamond 6GB 128GB</p>
+                            <div class="price">₹59999</div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <img src="WhatsApp Image 2024-09-21 at 12.48.09_9a0f5cd7.jpg" alt="Smart Irrigation System">
+                        <div class="text">
+                            <h3>Loggy</h3>
+                            <p>Comfortable shoes for running</p>
+                            <div class="price">₹2,999</div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <img src="Screenshot 2024-09-21 150758.png" alt="New Startup Product">
+                        <div class="text">
+                            <h3>Listen Headphones</h3>
+                            <p>10% off on the deal</p>
+                            <div class="price">₹999</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <div class="featured-products">
+                <h2>Brand Deals</h2>
+                <div class="content-area">
+                    <div class="product-item">
+                        <img src="Screenshot 2024-09-21 143224.png" alt="Maize farming">
+                        <div class="text">
+                            <h3>Sale available now go and shop</h3>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <img src="Screenshot 2024-09-21 143431.png" alt="PM Modi">
+                        <div class="text">
+                            <h3>Good deals available now</h3>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <img src="Screenshot 2024-09-21 151057.png" alt="New Brand Deal">
+                        <div class="text">
+                            <h3>30% off on the deals available on H&M</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h2>Appliances for your home | Up to 55% off</h2>
+            <div class="content-area">
+                <div class="product-item">
+                    <img src="Screenshot 2024-09-21 144023.png" alt="Deal 1">
+                    <div class="text">
+                        <h3>Special offer on AC</h3>
+                        <p>Get 10% off on AC</p>
+                        <div class="price">Starting from ₹30,000</div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="Screenshot 2024-09-21 144210.png" alt="Deal 2">
+                    <div class="text">
+                        <h3>Refrigerator 10% off</h3>
+                        <p>High demanding</p>
+                        <div class="price">Starting Price ₹7,000</div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="Screenshot 2024-09-21 151235.png" alt="Deal 3">
+                    <div class="text">
+                        <h3>Washing Machine</h3>
+                        <p> with 20% discount</p>
+                        <div class="price">Starting from ₹25,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h2>Animal Food</h2>
+            <div class="content-area">
+                <div class="product-item">
+                    <img src="" alt="Tip 1">
+                    <div class="text">
+                        <h3>Ped</h3>
+                        <p>Learn how crop rotation can improve soil health and yield</p>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Tip 2">
+                    <div class="text">
+                        <h3>Water Conservation Techniques</h3>
+                        <p>Discover methods to reduce water usage in agriculture</p>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Tip 3">
+                    <div class="text">
+                        <h3>Organic Pest Control</h3>
+                        <p>Natural ways to protect your crops from pests</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h2>Community Forum</h2>
+            <div class="content-area">
+                <div class="product-item">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Forum 1">
+                    <div class="text">
+                        <h3>Pest Control Strategies</h3>
+                        <p>Join the discussion on effective pest management</p>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Forum 2">
+                    <div class="text">
+                        <h3>Organic Farming Techniques</h3>
+                        <p>Share and learn about organic farming practices</p>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Forum 3">
+                    <div class="text">
+                        <h3>Sustainable Agriculture</h3>
+                        <p>Discuss eco-friendly farming methods</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h2>Weather Forecast</h2>
+            <div class="content-area">
+                <div class="product-item">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Weather 1">
+                    <div class="text">
+                        <h3>5-Day Forecast</h3>
+                        <p>Check the weather prediction for your region</p>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Weather 2">
+                    <div class="text">
+                        <h3>Rainfall Predictions</h3>
+                        <p>View expected rainfall patterns for the upcoming week</p>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Weather 3">
+                    <div class="text">
+                        <h3>Temperature Trends</h3>
+                        <p>Analyze temperature variations for crop planning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

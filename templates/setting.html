@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRUSHIMITRA - Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .phone {
+            width: 375px;
+            height: 667px;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .app-header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            position: relative;
+        }
+        .app-header .back-button {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            border: none;
+            color: #4CAF50;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .content-area {
+            flex-grow: 1;
+            padding: 20px;
+            font-size: 18px;
+            color: #888;
+        }
+        .setting-option {
+            background-color: #ffffff;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            padding: 12px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .setting-option:hover {
+            background-color: #f1f8e9;
+        }
+        .setting-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .switch-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e8f5e9;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .switch-label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .switch input[type="checkbox"] {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: #c6c6c6;
+            outline: none;
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
+        .switch input[type="checkbox"]:checked {
+            background: #4CAF50;
+        }
+        .switch input[type="checkbox"]::before {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            top: 1px;
+            left: 1px;
+            background: white;
+            transition: transform 0.3s;
+        }
+        .switch input[type="checkbox"]:checked::before {
+            transform: translateX(20px);
+        }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <div class="app-header">
+            <button class="back-button" onclick="goBack()"><i class="fa fa-arrow-left"></i></button> <!-- Back button with FontAwesome icon -->
+            Settings
+        </div>
+        <div class="content-area">
+            <!-- Language Option -->
+            <div class="setting-title">Language</div>
+            <div class="setting-option" onclick="changeLanguage()">Change Language</div>
+
+            <!-- Notification Toggle -->
+            <div class="setting-title">Notifications</div>
+            <div class="switch-container">
+                <span class="switch-label">Enable Notifications</span>
+                <label class="switch">
+                    <input type="checkbox" id="notificationToggle">
+                </label>
+            </div>
+
+            <!-- Theme Toggle -->
+            <div class="setting-title">App Theme</div>
+            <div class="setting-option" onclick="toggleTheme()">Switch to Dark Theme</div>
+        </div>
+    </div>
+
+    <script>
+        // Placeholder function for changing language
+        function changeLanguage() {
+            alert('Language change feature coming soon!');
+        }
+
+        // Toggle theme between light and dark
+        function toggleTheme() {
+            const body = document.body;
+            if (body.style.backgroundColor === 'black') {
+                body.style.backgroundColor = '#f0f0f0';
+                body.style.color = 'black';
+                alert('Switched to Light Theme');
+            } else {
+                body.style.backgroundColor = 'black';
+                body.style.color = 'white';
+                alert('Switched to Dark Theme');
+            }
+        }
+
+        // Handle notification toggle
+        document.getElementById('notificationToggle').addEventListener('change', function () {
+            if (this.checked) {
+                alert('Notifications Enabled');
+            } else {
+                alert('Notifications Disabled');
+            }
+        });
+
+        // Go back function
+        function goBack() {
+            window.location.href = 'abhi.html'; // Redirect to home page
+        }
+    </script>
+
+    <!-- Include FontAwesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</body>
+</html>

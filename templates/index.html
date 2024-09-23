@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRUSHIMITRA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f0f4f0;
+        }
+
+        .header {
+            background-color: #2c5e1a;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            color: #2c5e1a;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        input {
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2c5e1a;
+            box-shadow: 0 0 0 2px rgba(44, 94, 26, 0.2);
+        }
+
+        button {
+            background-color: #2c5e1a;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #234b15;
+        }
+
+        .switch {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .switch a {
+            color: #2c5e1a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .switch a:hover {
+            text-decoration: underline;
+        }
+
+        #dashboard {
+            display: none;
+        }
+
+        .dashboard-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .dashboard-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .dashboard-card h3 {
+            color: #2c5e1a;
+            margin-top: 0;
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Prime Deals</h1>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <!-- Sign Up Form -->
+            <div id="signup">
+                <h2>Create Account</h2>
+                <form id="signup-form">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    
+                    <label for="password-check">Confirm Password</label>
+                    <input type="password" id="password-check" name="password-check" required>
+                    
+                    <button type="submit">Sign Up</button>
+                </form>
+                <div class="switch">
+                    Already have an account? <a href="#" onclick="toggleForms()">Sign In</a>
+                </div>
+            </div>
+
+            <!-- Sign In Form -->
+            <div id="signin" style="display: none;">
+                <h2>Welcome Back</h2>
+                <form id="signin-form">
+                    <label for="signin-email">Email</label>
+                    <input type="email" id="signin-email" name="email" required>
+                    
+                    <label for="signin-password">Password</label>
+                    <input type="password" id="signin-password" name="password" required>
+                    
+                    <button type="submit">Sign In</button>
+                </form>
+                <div class="switch">
+                    New to KRUSHIMITRA? <a href="#" onclick="toggleForms()">Create an account</a>
+                </div>
+            </div>
+
+    <script>
+        function toggleForms() {
+            const signin = document.getElementById('signin');
+            const signup = document.getElementById('signup');
+            if (signin.style.display === 'none') {
+                signin.style.display = 'block';
+                signup.style.display = 'none';
+            } else {
+                signin.style.display = 'none';
+                signup.style.display = 'block';
+            }
+        }
+
+        document.getElementById('signin-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('signin').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+        });
+
+        document.getElementById('signin-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.location.href = 'abhi.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRUSHIMITRA - AI Chat Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .phone {
+            width: 375px;
+            height: 667px;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .app-header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #e8f5e9;
+        }
+        .option {
+            background-color: #ffffff;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            padding: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 30%;
+            font-size: 12px;
+        }
+        .option:hover {
+            background-color: #f1f8e9;
+        }
+        .sub-options {
+            display: none;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #e8f5e9;
+        }
+        .sub-option {
+            background-color: #ffffff;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            padding: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 30%;
+            font-size: 12px;
+        }
+        .sub-option:hover {
+            background-color: #f1f8e9;
+        }
+        .chat-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 10px;
+            background-color: #e8f5e9;
+            overflow-y: auto;
+        }
+        .message {
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin: 5px 0;
+            padding: 10px;
+            max-width: 70%;
+            font-size: 14px;
+        }
+        .user-message {
+            align-self: flex-end;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .bot-message {
+            align-self: flex-start;
+            background-color: #f1f1f1;
+        }
+        .input-area {
+            display: flex;
+            padding: 10px;
+            background-color: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            margin-bottom: 30px;
+        }
+        .input-area input {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+        }
+        .input-area button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-left: 10px;
+            font-size: 14px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .input-area button:hover {
+            background-color: #45a049;
+        }
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #29942f;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 74%;
+            height: -5;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        .bottom-nav .nav-item {
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .bottom-nav .nav-item i {
+            font-size: 24px;
+        }
+        .bottom-nav .nav-item:hover {
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <div class="app-header">KRUSHIMITRA</div>
+
+        <!-- Top options: Daily News, Direct Selling, AI Chat Bot -->
+        <div class="options">
+            <div class="option" onclick="showContent('news')">Daily News Updates</div>
+            <div class="option" onclick="toggleSubOptions()">Direct Selling</div>
+            <div class="option" onclick="showContent('aiChat')">AI Chat Bot</div>
+        </div>
+
+        <!-- Sub-options: Query Solution, Learn Farming, Crops Cure -->
+        <div class="sub-options" id="sub-options">
+            <div class="sub-option" onclick="showContent('aiChat')">Query Solution</div>
+            <div class="sub-option" onclick="showContent('Learn Farming')">Learn Farming</div>
+            <div class="sub-option" onclick="showContent('Crops Cure')">Crops Cure</div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-container" id="chat-container">
+            <!-- Chat messages will appear here -->
+        </div>
+
+        <!-- Input area for user query -->
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Type your query...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+        <!-- Bottom navigation bar -->
+        <div class="bottom-nav">
+            <div class="nav-item" onclick="navigateTo('Home')">
+                <i class="fa fa-home"></i><br>Home
+            </div>
+            <div class="nav-item" onclick="navigateTo('Profile')">
+                <i class="fa fa-user"></i><br>Profile
+            </div>
+            <div class="nav-item" onclick="navigateTo('Settings')">
+                <i class="fa fa-cog"></i><br>Settings
+            </div>
+            <div class="nav-item" onclick="navigateTo('Notifications')">
+                <i class="fa fa-bell"></i><br>Notifications
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to simulate bot responses (for now, it echoes the user input)
+        function sendMessage() {
+            const inputField = document.getElementById('user-input');
+            const chatContainer = document.getElementById('chat-container');
+            const userInput = inputField.value.trim();
+
+            if (userInput === "") return;
+
+            // Append user's message
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user-message');
+            userMessage.textContent = userInput;
+            chatContainer.appendChild(userMessage);
+
+            // Scroll to the bottom after appending
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            // Clear input field
+            inputField.value = "";
+
+            // Simulate bot response after 1 second
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.classList.add('message', 'bot-message');
+                botMessage.textContent = "I have received your query: " + userInput;
+
+                chatContainer.appendChild(botMessage);
+
+                // Scroll to the bottom after appending
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }, 1000);
+        }
+
+        // Allow sending messages with the Enter key
+        document.getElementById('user-input').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Navigation functions for bottom bar
+        function navigateTo(page) {
+            if (page === 'Profile') {
+                window.location.href = 'profile.html'; // Redirect to profile.html
+            } else if (page === 'Home') {
+                window.location.href = 'home.html'; // Redirect to home.html
+            } else if (page === 'Settings') {
+                window.location.href = 'setting.html'; // Redirect to settings.html
+            } else if (page === 'Notifications') {
+                window.location.href = 'notification.html'; // Redirect to notification.html
+            }
+        }
+
+        // Updates the content area with the selected option or redirects
+        function showContent(type) {
+            if (type === 'news') {
+                window.location.href = 'abhi.html'; // Redirect to Daily News Updates page
+            } else if (type === 'aiChat') {
+                window.location.href = 'query.html'; // Redirect to AI Chat Bot page directly
+            }
+        }
+    </script>
+    <!-- Include FontAwesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</body>
+</html>

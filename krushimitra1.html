@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRUSHIMITRA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ea;
+        }
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c5e1a;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .switch {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .switch a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+        .dashboard {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dashboard-content {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .dashboard-card {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sign In Form -->
+        <div id="signin">
+            <h1>KRUSHIMITRA</h1>
+            <form id="signin-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Sign In</button>
+            </form>
+            <div class="switch">
+                Don't have an account? <a href="#" onclick="toggleForms()">Sign Up</a>
+            </div>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signup" style="display: none;">
+            <h1>KRUSHIMITRA</h1>
+            <form id="signup-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="switch">
+                Already have an account? <a href="#" onclick="toggleForms()">Sign In</a>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="dashboard">
+            <h1>Welcome to KRUSHIMITRA</h1>
+            <div class="dashboard-content">
+                <div class="dashboard-card">
+                    <h3>Weather</h3>
+                    <p>Sunny, 25°C</p>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Crop Status</h3>
+                    <p>Healthy</p>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Tasks</h3>
+                    <p>2 pending</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const signin = document.getElementById('signin');
+            const signup = document.getElementById('signup');
+            if (signin.style.display === 'none') {
+                signin.style.display = 'block';
+                signup.style.display = 'none';
+            } else {
+                signin.style.display = 'none';
+                signup.style.display = 'block';
+            }
+        }
+
+        document.getElementById('signin-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'flex';
+        });
+
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Account created successfully! Please sign in.');
+            toggleForms();
+        });
+        // Function to toggle between Sign In and Sign Up forms
+function toggleForms() {
+    const signin = document.getElementById('signin');
+    const signup = document.getElementById('signup');
+    if (signin.style.display === 'none') {
+        signin.style.display = 'block';
+        signup.style.display = 'none';
+    } else {
+        signin.style.display = 'none';
+        signup.style.display = 'block';
+    }
+}
+
+// Handle Sign In Form submission
+document.getElementById('signin-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Redirect to the dashboard page (abhi.html)
+    window.location.href = 'abhi.html';
+});
+
+// Handle Sign Up Form submission
+document.getElementById('signup-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // You can add form validation here if needed
+
+    // Show a message or alert for successful account creation
+    alert('Account created successfully! Please sign in.');
+
+    // Toggle to the Sign In form
+    toggleForms();
+});
+
+    </script>
+</body>
+</html>
